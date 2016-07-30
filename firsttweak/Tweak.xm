@@ -32,3 +32,9 @@ the generation of a class list and an automatic constructor.
 // Always make sure you clean up after yourself; Not doing so could have grave consequences!
 %end
 */
+%hook SBLockScreenViewController
+
+- (void)viewWillAppear:(BOOL)arg1 {
+  %orig;
+  [[[UIAlertView alloc] initWithTitle:@"Sup" message:@"It works" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] show];
+}
